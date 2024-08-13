@@ -94,7 +94,6 @@ public class AccountService {
 
         account.setPersonName(request.getPersonName());
         account.setPersonSurname(request.getPersonSurname());
-        account.setPersonPatronymic(request.getPersonPatronymic());
         account.setLogin(request.getLogin());
         account.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
         account.setEmail(request.getEmail());
@@ -127,7 +126,6 @@ public class AccountService {
         checkAndSetValue(account.getPassword(), !Strings.isNullOrEmpty(request.getPassword()) ? bCryptPasswordEncoder.encode(request.getPassword()) : null, account::setPassword);
         checkAndSetValue(account.getPersonName(), request.getPersonName(), account::setPersonName);
         checkAndSetValue(account.getPersonSurname(), request.getPersonSurname(), account::setPersonSurname);
-        checkAndSetValue(account.getPersonPatronymic(), request.getPersonPatronymic(), account::setPersonPatronymic);
         checkAndSetValue(account.getEnabled(), request.getEnabled(), account::setEnabled);
 
         accountRepository.save(account);

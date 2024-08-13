@@ -21,8 +21,6 @@ public class Account {
     private String personName;
     @Column(name = "person_surname")
     private String personSurname;
-    @Column(name = "person_patronymic")
-    private String personPatronymic;
     @Column(name = "login")
     private String login;
     @Column(name = "password")

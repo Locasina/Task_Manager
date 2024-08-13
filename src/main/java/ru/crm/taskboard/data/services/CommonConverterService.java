@@ -19,7 +19,6 @@ public class CommonConverterService {
         accountData.setAccountId(account.getId());
         accountData.setPersonName(account.getPersonName());
         accountData.setPersonSurname(account.getPersonSurname());
-        accountData.setPersonPatronymic(account.getPersonPatronymic());
         accountData.setLogin(account.getLogin());
         accountData.setEmail(account.getEmail());
         accountData.setEnabled(account.getEnabled());
