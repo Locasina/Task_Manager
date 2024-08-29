@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import ru.crm.taskboard.security.exceptions.InvalidPasswordException;
+import ru.crm.taskboard.services.taskboard.exception.TaskBoardNotFoundException;
 import ru.crm.taskboard.utils.ResponseBuilder;
 
 import javax.security.auth.login.AccountNotFoundException;
@@ -39,9 +40,9 @@ public class RESTControllersExceptionHandler extends ResponseEntityExceptionHand
     @ExceptionHandler({UsernameNotFoundException.class, InvalidPasswordException.class,
             FileAlreadyExistsException.class, NotDirectoryException.class,
             FileNotFoundException.class, NoSuchFileException.class,
-            IOException.class, AccountNotFoundException.class
+            IOException.class, AccountNotFoundException.class,
+            TaskBoardNotFoundException.class
     })
-
     public ResponseEntity<?> handleCustomException(Exception ex) {
         log.error(ex.getMessage(), ex);
 

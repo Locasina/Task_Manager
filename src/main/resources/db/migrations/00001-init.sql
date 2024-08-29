@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS account
     id                          SERIAL PRIMARY KEY,
     person_name                 TEXT,
     person_surname              TEXT,
-    person_patronymic           TEXT,
     login                       TEXT      NOT NULL UNIQUE,
     password                    TEXT      NOT NULL,
     email                       TEXT UNIQUE,
@@ -22,7 +21,6 @@ COMMENT ON TABLE account IS 'Таблица для хранения данных
 COMMENT ON COLUMN account.id IS 'Идентификатор записи';
 COMMENT ON COLUMN account.person_name IS 'Имя пользователя';
 COMMENT ON COLUMN account.person_surname IS 'Фамилия пользователя';
-COMMENT ON COLUMN account.person_patronymic IS 'Отчество пользователя';
 COMMENT ON COLUMN account.login IS 'Логин пользователя';
 COMMENT ON COLUMN account.password IS 'Пароль пользователя';
 COMMENT ON COLUMN account.email IS 'Адрес эл. почты пользователя';
