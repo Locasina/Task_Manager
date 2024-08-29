@@ -2,7 +2,9 @@ package ru.crm.taskboard.data.services;
 
 import org.springframework.stereotype.Service;
 import ru.crm.taskboard.data.dto.AccountData;
+import ru.crm.taskboard.data.dto.TaskBoardData;
 import ru.crm.taskboard.data.entities.Account;
+import ru.crm.taskboard.data.entities.TaskBoard;
 
 import java.util.Objects;
 
@@ -27,5 +29,24 @@ public class CommonConverterService {
         accountData.setUpdateTime(account.getUpdateTime());
 
         return accountData;
+    }
+
+    public TaskBoardData formTaskBoardData(TaskBoard taskBoard) {
+        if (Objects.isNull(taskBoard)) return null;
+
+        TaskBoardData taskBoardData = new TaskBoardData();
+
+        taskBoardData.setTaskBoardId(taskBoard.getId());
+        taskBoardData.setTitle(taskBoard.getTitle());
+        taskBoardData.setDescription(taskBoard.getDescription());
+        taskBoardData.setCreateDate(taskBoard.getCreateDate());
+        taskBoardData.setIsArchived(taskBoard.getIsArchived());
+        taskBoardData.setArchiveDate(taskBoard.getArchiveDate());
+
+        for (Account account : taskBoard.getAccountsSet()) {
+            taskBoardData.getAccountsDataList().add(formAccountData(account));
+        }
+
+        return taskBoardData;
     }
 }

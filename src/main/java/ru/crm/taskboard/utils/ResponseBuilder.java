@@ -19,6 +19,12 @@ public final class ResponseBuilder {
     public static final String CREATE_ACCOUNT_EXCEPTION = "Ошибка во время создания аккаунта пользователя!";
     public static final String UPDATE_ACCOUNT_EXCEPTION = "Ошибка во время изменения информации об аккаунте пользователя!";
     public static final String DELETE_ACCOUNT_EXCEPTION = "Ошибка во время удаления информации об аккаунте пользователя!";
+    public static final String GET_TASK_BOARD_EXCEPTION = "Ошибка во время получения информации о рабочем пространстве!";
+    public static final String GET_TASK_BOARD_LIST_EXCEPTION = "Ошибка во время получения списка информации о рабочих пространствах!";
+    public static final String CREATE_TASK_BOARD_EXCEPTION = "Ошибка во время создания рабочего пространства!";
+    public static final String UPDATE_TASK_BOARD_EXCEPTION = "Ошибка во время изменения информации о рабочем пространстве!";
+    public static final String DELETE_TASK_BOARD_EXCEPTION = "Ошибка во время удаления информации о рабочем пространстве!";
+
 
     public static ResponseEntity<?> createResponseSuccessWithMessage(String message, HttpStatus httpStatus) {
         return new ResponseEntity<>(new ResponseSuccess("message", message), httpStatus);

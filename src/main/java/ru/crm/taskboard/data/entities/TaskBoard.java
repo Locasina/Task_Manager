@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -25,4 +26,13 @@ public class TaskBoard {
     private LocalDate createDate;
     @Column(name = "archive_date")
     private LocalDate archiveDate;
+    @ManyToMany
+    @JoinTable(
+            name = "account_to_task_board",
+            joinColumns = @JoinColumn(name = "account_id"),
+            inverseJoinColumns = @JoinColumn(name = "task_board_id")
+    )
+    private Set<Account> accountsSet;
+
+
 }
