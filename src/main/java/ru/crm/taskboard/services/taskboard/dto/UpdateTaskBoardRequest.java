@@ -20,4 +20,6 @@ public class UpdateTaskBoardRequest {
     private String title;
     @Schema(name = "description", description = "Описание рабочего пространства", allowableValues = "строка", required = false)
     private String description;
+    @Schema(name = "isArchived", description = "Статус архивирования", allowableValues = "строка", required = false)
+    private Boolean isArchived;
 }

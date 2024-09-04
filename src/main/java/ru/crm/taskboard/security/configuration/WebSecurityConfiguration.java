@@ -32,37 +32,38 @@ public class WebSecurityConfiguration {
             // -- Swagger UI v2
             "/v2/api-docs",
             "/swagger-resources",
-            "/swagger-resources/**",
+            "/swagger-resources/*",
             "/configuration/ui",
             "/configuration/security",
-            "/swagger-ui.html/**",
-            "/webjars/**",
+            "/swagger-ui.html/*",
+            "/webjars/*",
             // -- Swagger UI v3 (OpenAPI)
-            "/v3/api-docs/**",
-            "/swagger-ui/**",
+            "/v3/api-docs/*",
+            "/swagger-ui/*",
             // other public endpoints of your API may be appended to this array
-            "/api/auth/**",
+            "/api/auth/*",
+            "/api/account/*",
             "/",
             "/favicon.ico",
-            "/**/*.json",
-            "/**/*.xml",
-            "/**/*.properties",
-            "/**/*.woff2",
-            "/**/*.woff",
-            "/**/*.ttf",
-            "/**/*.ttc",
-            "/**/*.ico",
-            "/**/*.bmp",
-            "/**/*.png",
-            "/**/*.gif",
-            "/**/*.svg",
-            "/**/*.jpg",
-            "/**/*.jpeg",
-            "/**/*.html",
-            "/**/*.css",
-            "/**/*.js"
+            "/*/*.json",
+            "/*/*.xml",
+            "/*/*.properties",
+            "/*/*.woff2",
+            "/*/*.woff",
+            "/*/*.ttf",
+            "/*/*.ttc",
+            "/*/*.ico",
+            "/*/*.bmp",
+            "/*/*.png",
+            "/*/*.gif",
+            "/*/*.svg",
+            "/*/*.jpg",
+            "/*/*.jpeg",
+            "/*/*.html",
+            "/*/*.css",
+            "/*/*.js"
     };
-    @Value("${constructions.allowed.origins}")
+    @Value("${crm.allowed.origins}")
     private List<String> allowedOrigins;
 
     @Bean

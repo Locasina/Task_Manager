@@ -58,12 +58,12 @@ public class AuthService {
         }
     }
 
-
     public String refreshToken(String refreshToken) throws LoginException {
         Claims claims = null;
+        
         try {
             claims = tokenService.getClaimsForToken(refreshToken);
-            if (!claims.get("type").equals("refreshToken")) {
+            if (!claims.get("type").equals("authToken")) {
                 throw new Error("Токен не авторизации");
             }
         } catch (Error error) {
@@ -76,7 +76,6 @@ public class AuthService {
         }
 
         UserDetailsImpl userDetails = (UserDetailsImpl) userDetailsService.loadUserByUsername(claims.getSubject());
-
 
         return tokenService.generateToken(userDetails);
     }
@@ -95,5 +94,4 @@ public class AuthService {
             tokenBlacklistRepository.save(tokenBlacklist);
         }
     }
-
 }

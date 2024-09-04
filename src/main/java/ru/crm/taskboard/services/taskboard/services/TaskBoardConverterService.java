@@ -15,6 +15,7 @@ public class TaskBoardConverterService {
         taskBoard.setTitle(request.getTitle());
         taskBoard.setDescription(request.getDescription());
         taskBoard.setCreateDate(LocalDate.now());
+        taskBoard.setIsArchived(false);
 
         return taskBoard;
     }

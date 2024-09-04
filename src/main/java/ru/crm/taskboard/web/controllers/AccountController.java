@@ -16,7 +16,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 import ru.crm.taskboard.data.dto.AccountData;
 import ru.crm.taskboard.utils.ResponseBuilder;
@@ -75,24 +74,6 @@ public class AccountController {
     })
     public ResponseEntity<?> createAccount(@Parameter(name = "Запрос создания аккаунта пользователя")
                                            @Valid @RequestBody CreateAccountRequest createAccountRequest,
-                                           @Parameter(name = "Имя пользователя")
-                                           @Nullable @RequestParam("name") String name,
-                                           @Parameter(name = "Фамилия пользователя")
-                                           @Nullable @RequestParam("surname") String surname,
-                                           @Parameter(name = "Отчество пользователя")
-                                           @Nullable @RequestParam("patronymic") String patronymic,
-                                           @Parameter(name = "Отчество пользователя")
-                                           @Nullable @RequestParam("fullName") String fullName,
-                                           @Parameter(name = "Адрес эл. почты пользователя")
-                                           @Nullable @RequestParam("email") String email,
-                                           @Parameter(name = "Табельный номер пользователя в компании")
-                                           @Nullable @RequestParam("serviceNumber") String serviceNumber,
-                                           @Parameter(name = "Наименование должности пользователя в компании")
-                                           @Nullable @RequestParam("positionTitle") String positionTitle,
-                                           @Parameter(name = "Наименование подразделения компании")
-                                           @Nullable @RequestParam("departmentTitle") String departmentTitle,
-                                           @Parameter(name = "Наименование компании")
-                                           @Nullable @RequestParam("organizationTitle") String organizationTitle,
                                            @ParameterObject
                                            @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws ResourceAlreadyInUseException {
 

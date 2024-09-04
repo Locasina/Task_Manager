@@ -31,8 +31,8 @@ public class TaskBoardService {
         return commonConverterService.formTaskBoardData(getTaskBoardById(id));
     }
 
-    public List<TaskBoardData> getAllTaskBoard(Integer accountId) {
-        List<TaskBoard> taskBoardList = taskBoardRepository.getAllByFilter(accountId);
+    public List<TaskBoardData> getAllTaskBoard() {
+        List<TaskBoard> taskBoardList = taskBoardRepository.findAll();
         List<TaskBoardData> taskBoardDataList = new ArrayList<>();
 
         for (TaskBoard item : taskBoardList) {
@@ -56,8 +56,10 @@ public class TaskBoardService {
         }
 
         TaskBoard taskBoard = getTaskBoardById(request.getId());
+
         taskBoard.setTitle(request.getTitle());
         taskBoard.setDescription(request.getDescription());
+        taskBoard.setIsArchived(request.getIsArchived());
 
         return taskBoardRepository.save(taskBoard);
     }
@@ -66,7 +68,8 @@ public class TaskBoardService {
         if (taskBoardRepository.existsById(id)) {
             taskBoardRepository.deleteById(id);
         }
-        return null;
+
+        return getAllTaskBoard();
     }
 
     private TaskBoard getTaskBoardById(Integer id) throws TaskBoardNotFoundException {

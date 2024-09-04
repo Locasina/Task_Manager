@@ -34,10 +34,4 @@ public class CreateAccountRequest {
     @NotNull(message = "Признак 'Активный/активированный аккаунт' не может быть пустым!")
     @Schema(name = "enabled", description = "Признак 'Активный/активированный аккаунт'", allowableValues = "TRUE/FALSE")
     private Boolean enabled;
-    @NotNull(message = "Идентификатор должности компании не может быть пустым!")
-    @Schema(name = "organizationPositionId", description = "Идентификатор должности компании", allowableValues = "Непустое число", required = true)
-    private Integer organizationPositionId;
-    @NotEmpty(message = "Табельный номер пользователя в компании не может быть пустым!")
-    @Schema(name = "organizationServiceNumber", description = "Табельный номер пользователя в компании", allowableValues = "Непустая строка", required = true)
-    private String organizationServiceNumber;
 }

@@ -25,7 +25,6 @@ import ru.crm.taskboard.services.taskboard.exception.TaskBoardAlreadyExistsExcep
 import ru.crm.taskboard.services.taskboard.exception.TaskBoardNotFoundException;
 import ru.crm.taskboard.services.taskboard.services.TaskBoardService;
 import ru.crm.taskboard.utils.ResponseBuilder;
-import ru.crm.taskboard.web.exceptions.ResourceAlreadyInUseException;
 
 @Slf4j
 @RestController
@@ -65,7 +64,7 @@ public class TaskBoardController {
         return ResponseBuilder.createResponseSuccess(
                 "taskBoardDataList",
                 taskBoardService
-                        .getAllTaskBoard(accountId), HttpStatus.OK);
+                        .getAllTaskBoard(), HttpStatus.OK);
     }
 
     @PostMapping
@@ -91,7 +90,7 @@ public class TaskBoardController {
                                              @Nullable @RequestParam("archiveDate") String archiveDate,
                                              @Parameter(name = "Список данных рабочего пространства")
                                              @Nullable @RequestParam("taskBoardDataList") String taskBoardDataList
-    ) throws ResourceAlreadyInUseException, TaskBoardAlreadyExistsException {
+    ) throws TaskBoardAlreadyExistsException {
 
         return ResponseBuilder.createResponseSuccess("accountDataList", taskBoardService.createTaskBoard(createTaskBoardRequest), HttpStatus.OK);
     }
@@ -105,7 +104,7 @@ public class TaskBoardController {
     })
     public ResponseEntity<?> updateTaskBoard(@Parameter(name = "Запрос изменения данных рабочего пространства")
                                              @Valid @RequestBody UpdateTaskBoardRequest updateTaskBoardRequest
-    ) throws TaskBoardNotFoundException, ResourceAlreadyInUseException, TaskBoardAlreadyExistsException {
+    ) throws TaskBoardNotFoundException, TaskBoardAlreadyExistsException {
 
         return ResponseBuilder.createResponseSuccess("accountDataList", taskBoardService.updateTaskBoard(updateTaskBoardRequest), HttpStatus.OK);
     }
